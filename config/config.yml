@@ -10,7 +10,7 @@ timezone: UTC                       # Your PHP installation might require you to
 ##
 # Theme
 #
-theme: clutter                      # The name of your custom theme
+theme: inline                      # The name of your custom theme
 theme_url: ~                        # Pico will try to guess the URL to the themes dir of your installation
                                     #     If this fails, override it here. Example: http://example.com/pico/themes/
 theme_config:

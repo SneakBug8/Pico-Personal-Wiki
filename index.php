@@ -36,4 +36,5 @@ $pico = new Pico(
 //$pico->setConfig(array());
 
 // run application
+echo $pico->prepare();
 echo $pico->run();

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit37bcf3c1669669b4e374fd17d45b1c62
+class ComposerStaticInitbeee1682c6fcb65261e0a2f648854ba2
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -82,23 +82,13 @@ class ComposerStaticInit37bcf3c1669669b4e374fd17d45b1c62
     );
 
     public static $classMap = array (
-        'AbstractPicoCompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/lib/AbstractPicoCompatPlugin.php',
         'AbstractPicoPlugin' => __DIR__ . '/..' . '/picocms/pico/lib/AbstractPicoPlugin.php',
-        'AbstractPicoPluginApiCompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/lib/AbstractPicoPluginApiCompatPlugin.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
         'ParsedownExtra' => __DIR__ . '/..' . '/erusev/parsedown-extra/ParsedownExtra.php',
+        'ParsedownExtraTest' => __DIR__ . '/..' . '/erusev/parsedown-extra/test/ParsedownExtraTest.php',
         'Pico' => __DIR__ . '/..' . '/picocms/pico/lib/Pico.php',
-        'PicoCompatPluginInterface' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/lib/PicoCompatPluginInterface.php',
         'PicoDeprecated' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/PicoDeprecated.php',
-        'PicoMainCompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/plugins/PicoMainCompatPlugin.php',
-        'PicoPluginApi0CompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/plugins/PicoPluginApi0CompatPlugin.php',
-        'PicoPluginApi1CompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/plugins/PicoPluginApi1CompatPlugin.php',
-        'PicoPluginApi2CompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/plugins/PicoPluginApi2CompatPlugin.php',
-        'PicoPluginApiCompatPluginInterface' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/lib/PicoPluginApiCompatPluginInterface.php',
         'PicoPluginInterface' => __DIR__ . '/..' . '/picocms/pico/lib/PicoPluginInterface.php',
-        'PicoThemeApi0CompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/plugins/PicoThemeApi0CompatPlugin.php',
-        'PicoThemeApi1CompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/plugins/PicoThemeApi1CompatPlugin.php',
-        'PicoThemeApi2CompatPlugin' => __DIR__ . '/../..' . '/plugins/PicoDeprecated/plugins/PicoThemeApi2CompatPlugin.php',
         'PicoTwigExtension' => __DIR__ . '/..' . '/picocms/pico/lib/PicoTwigExtension.php',
         'Pico\\Composer\\Installer\\PluginInstaller' => __DIR__ . '/..' . '/picocms/composer-installer/src/Installer/PluginInstaller.php',
         'Symfony\\Component\\Yaml\\Dumper' => __DIR__ . '/..' . '/symfony/yaml/Dumper.php',
@@ -490,10 +480,10 @@ class ComposerStaticInit37bcf3c1669669b4e374fd17d45b1c62
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit37bcf3c1669669b4e374fd17d45b1c62::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit37bcf3c1669669b4e374fd17d45b1c62::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit37bcf3c1669669b4e374fd17d45b1c62::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit37bcf3c1669669b4e374fd17d45b1c62::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbeee1682c6fcb65261e0a2f648854ba2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbeee1682c6fcb65261e0a2f648854ba2::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbeee1682c6fcb65261e0a2f648854ba2::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbeee1682c6fcb65261e0a2f648854ba2::$classMap;
 
         }, null, ClassLoader::class);
     }

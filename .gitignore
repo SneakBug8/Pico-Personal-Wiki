@@ -1,2 +1,20 @@
+# Linux
+*~
+*.swp
 
-submission/clutter.md
+# Windows
+Thumbs.db
+desktop.ini
+
+# Mac OS X
+.DS_Store
+._*
+
+# Composer
+.vscode
+vendor/
+composer.*
+config/l*.yml
+
+logs/
+content/

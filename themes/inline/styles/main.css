@@ -1,0 +1,97 @@
+/* generic styles */
+
+h1 {
+  margin-top: 0 !important;
+}
+
+.directory a:last-child {
+  font-weight: 700;
+}
+
+.section-anchor {
+  margin-right: 10px;
+  color: gray;
+}
+
+.main-nav {
+  width: 30%;
+  float: left;
+  height: 100%;
+}
+
+.nav-top {
+  border: 1px solid #bba;
+  background-color: #f7f8ff;
+  padding: 1em;
+  font-size: 90%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .main-nav {
+    position: static;
+    width: 100%;
+  }
+}
+
+ul.nav {
+  list-style: none;
+  line-height: 1.5em;
+  margin: 0;
+}
+
+li.menuitem.active a {
+  font-weight: bold;
+}
+
+.layer2 {
+  margin-left: 1em;
+}
+
+/* content */
+
+.main-content {
+  float: left;
+  max-width: 900px;
+  width: 70%;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .main-content {
+    border-top: 10px solid #e3e3e3;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.site-content {
+  padding: 1em;
+}
+
+@media only screen and (min-width: 800px) {
+  .article {
+    margin-left: 1em;
+  }
+}
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.directory {
+  display: block;
+  padding: 0;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  text-align: left;
+}
