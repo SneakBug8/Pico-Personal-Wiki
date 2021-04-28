@@ -15,43 +15,18 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <!-- highlight.js -->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
 </head>
 
 <body>
   <aside class="main-nav">
+
     {% include "pagesmenu.twig" %}
+
     {% include "editlink.twig" %}
     {% include "newform.twig" %}
+
   </aside>
-  {% if current_page.meta.toc %}
-  <aside class="nav-contents">
-    <nav>
-      <ul class="table-contents">
-        <li><a href="#">{{ current_page.title }}</a></li>
-      </ul>
-    </nav>
-  </aside>
-  {% endif %}
-  <main class="main-content">
-    <article class="article">
-      {% if current_page %}
-      <h1 class='main-title' id="title"><span class="section-anchor"><a href="#">#</a></span>{{ current_page.title }}
-      </h1>
-      {% endif %}
-      {{ content }}
-    </article>
-    <footer>
-      <hr>
-      <small>Сделано с ❤ <a href="https://sneakbug8.com">Павлом Наконечным</a></small>
-    </footer>
-  </main>
+
   {% include "anchors-script.twig" %}
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </body>
