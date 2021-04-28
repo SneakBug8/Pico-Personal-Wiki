@@ -9,7 +9,7 @@ body {
   padding: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #e3e3e3;
-=
+  font-size: 14pt;
 }
 
 h1,
@@ -63,6 +63,7 @@ nav {
 @media only screen and (max-width: 800px) {
   .main-nav {
     position: static;
+    float: none;
     width: 100%;
   }
 }
@@ -119,8 +120,8 @@ li.menuitem.active a {
 
 .main-content {
   float: left;
-  max-width: 900px;
-  width: 60%;
+  /* max-width: 900px; */
+  width: 80%;
   background: #fafafa;
 }
 
