@@ -132,6 +132,73 @@ class Clutter extends AbstractPicoPlugin
         // } = </td></td>
     }
 
+    public function viewCounter($id) {
+        $id = str_replace('/', '', $id);
+        $id = str_replace('\\', '', $id);
+        $id = str_replace('.', '', $id);
+        $id = str_replace('-', '', $id);
+
+        $id = "wiki1256_" . $id;
+
+        ?><div class="views-counter">Просмотров: <span id="counter-<?php echo $id; ?>"></span></div>
+        <script>
+            "use strict";
+            function isElementInViewport (el) {
+                if (!el) { return false; }
+                var rect = el.getBoundingClientRect();
+
+                return (
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+                );
+            }
+            function defer(method)
+            {
+                if (window.jQuery) {
+                    method();
+                } else {
+                    setTimeout(function () { defer(method) }, 50);
+                }
+            }
+
+            defer(function ()
+            {
+                jQuery(window).ready(function ()
+                {
+                    jQuery.ajax("https://sneakbug8.com/publish/postviewcounter/get.php?id=<?php echo $id; ?>&skip=true")
+                    .done(function (msg) {
+                        jQuery("#counter-<?php echo $id; ?>").text(msg);
+                    });
+                });
+            });
+
+            function checkElem<?php echo $id; ?>() {
+                defer(function ()
+                {
+                    jQuery(window).ready(function ()
+                    {
+                        if (isElementInViewport(jQuery('article').get(0))) {
+                            if (!alreadyviewed<?php echo $id; ?>) {
+                                jQuery.ajax("https://sneakbug8.com/publish/postviewcounter/index.php?id=<?php echo $id; ?>")
+                                .done(function (msg) {
+                                    console.log("#counter-<?php echo $id; ?> : " + msg);
+                                    jQuery("#counter-<?php echo $id; ?>").text(msg);
+                                    localStorage.setItem("<?php echo $id; ?>", true);
+                                });
+                            }
+                            clearInterval(interval<?php echo $id; ?>);
+                        }
+                    });
+                });
+            }
+
+            var alreadyviewed<?php echo $id; ?> = localStorage.getItem("<?php echo $id; ?>");
+            var interval<?php echo $id; ?> = setInterval(checkElem<?php echo $id; ?>,500);
+        </script>
+        </div>
+        <?php
+    }
+
     //public function onPageRendering(&$templateName, array &$twigVariables) {
     public function onPagesDiscovered(&$pages)
     {
@@ -144,5 +211,13 @@ class Clutter extends AbstractPicoPlugin
         $twig->addFilter(new Twig_SimpleFilter('ifRow', array($this, 'ifRow')));
         $twig->addFilter(new Twig_SimpleFilter('ifSize', array($this, 'ifSize')));
         $twig->addFilter(new Twig_SimpleFilter('ifStyle', array($this, 'ifStyle')));
+        $twig->addFilter(new Twig_SimpleFilter('viewCounter', array($this, 'viewCounter')));
+
+        foreach ($pages as &$page) {
+            if (!array_key_exists("weight", $page["meta"])) {
+                $page["meta"]["weight"] = 100;
+            }
+            // var_dump($page);
+        }
     }
 }
