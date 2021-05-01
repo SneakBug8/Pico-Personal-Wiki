@@ -1,0 +1,25 @@
+<h3>Меню</h3>
+<p><a href="{{ base_url }}" class="btn-link">Главная</a> / {{ current_page.id |root|directoryChain}}</p>
+<nav class="btn-group-vertical" role="group" aria-label="Pages list">
+        {% for page in pages|sort_by("title")|sort_by(["meta", "weight"])%}
+        {% if not page.hidden %}
+        {% if page.meta.shortcut %}
+        <span class="shortcut-data" style="display:none;" data-shortcut='{{ page.meta.shortcut }}'>{{ page.url }}</span>
+        {% endif %}
+        {%if current_page.id|isIndex %}
+        {% set offset = 1 %}
+        {% endif %}
+
+        {% if (is_front_page or (page.id starts with current_page.id |root))
+            and (current_page.id|level == page.id|level-offset) %}
+
+        <a class="btn btn-light {% if page.id == current_page.id %}btn-dark{% endif %}" {{page.meta.size|ifSize}} href="{{ page.url }}" data-shortcut="{{page.meta.shortcut}}" {{page.meta.style|ifStyle}}>
+            {% if page.title %}{{ page.title }}{% else %}{{page.id}}{% endif %}
+            {% if page.id|isIndex %}/{% endif %}
+        </a>
+
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    {% set offset = 0 %}
+</nav>

@@ -1,0 +1,21 @@
+{
+  "name": "tailwindtheme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "postcss-cli-simple": "^3.1.0",
+    "tailwindcss-cli": "^0.1.2"
+  },
+  "scripts": {
+    "build": "npx tailwindcss-cli build ./css/styles.css --no-autoprefixer -o style.css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.13",
+    "tailwindcss": "^2.1.2"
+  }
+}

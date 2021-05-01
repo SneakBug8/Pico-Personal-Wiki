@@ -1,0 +1,25 @@
+<script>
+    {% if meta.highlight %} //set highlighting if it's defined
+    $('code').addClass('{{ current_page.meta.highlight }}');
+    {% endif %}
+
+    $('.shortcut-data').each(function () { //make shortcuts
+      var self = this;
+      Mousetrap.bind($(this).attr('data-shortcut'), function (e) {
+        window.location = $(self).text();
+      });
+    });
+
+
+    $('.article h1, .article h2').not('.main-title').each(function () { //make anchors
+      var rawName = $(this).text();
+
+      var cleanedName = rawName.replace(/[\.\s]+/g, '-');
+      $('<a id=' + cleanedName + ' />').insertBefore($(this));
+      $(this).prepend($('<span class="section-anchor"><a href="#' + cleanedName + '">#</a></span>'));
+
+      var contentLine = $('<li><a href="#' + cleanedName + '">' + rawName + '</a>' + '</li>');
+      if ($(this).is('h2')) contentLine.addClass('layer2');
+      $('.table-contents').append(contentLine);
+    });
+  </script>

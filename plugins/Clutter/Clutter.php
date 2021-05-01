@@ -144,6 +144,5 @@ class Clutter extends AbstractPicoPlugin
         $twig->addFilter(new Twig_SimpleFilter('ifRow', array($this, 'ifRow')));
         $twig->addFilter(new Twig_SimpleFilter('ifSize', array($this, 'ifSize')));
         $twig->addFilter(new Twig_SimpleFilter('ifStyle', array($this, 'ifStyle')));
-
     }
 }

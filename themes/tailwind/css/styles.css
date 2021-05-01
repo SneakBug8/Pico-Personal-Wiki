@@ -1,0 +1,73 @@
+@tailwind base;
+
+body {
+    font-size: 14pt;
+    @apply bg-gray-100;
+}
+
+.my-border {
+    @apply border-gray-50 rounded;
+}
+
+.my-small-border {
+    @apply border-2 my-border;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+a {
+    @apply text-blue-600 underline hover:no-underline;
+}
+
+p, ul {
+    @apply mt-1 mb-1;
+}
+
+h1, h2, h3, h4, h5 {
+    @apply font-bold;
+    @apply mb-1;
+}
+
+h1 {
+    @apply text-3xl;
+}
+
+h2,
+h3 {
+    @apply text-2xl;
+}
+
+ul {
+    @apply list-disc list-inside ml-1 mt-1 mb-1;
+}
+
+ul.nav {
+    @apply list-none;
+}
+
+.main-container {
+    @apply container mx-auto m-4 p-4 max-w-screen-lg my-small-border clearfix;
+    @apply bg-white;
+}
+
+.main-nav {
+    @apply w-full md:w-3/12 float-left p-1;
+    @apply text-sm;
+}
+
+.main-content {
+    @apply w-full md:w-9/12 float-left p-1;
+    @apply border-l-2 my-border;
+}
+
+.footer {
+    @apply mt-4;
+}
+
+.section-anchor {
+    @apply mr-1;
+}
