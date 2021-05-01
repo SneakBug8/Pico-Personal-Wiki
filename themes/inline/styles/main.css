@@ -85,6 +85,7 @@ li.menuitem.active a {
 .directory {
   display: block;
   padding: 0;
+  margin-bottom: 1em;
   font-size: 90%;
   font-weight: bold;
 }
