@@ -376,6 +376,41 @@ class Pico
         return $this->themesDir;
     }
 
+    public function serveImage($filepath) {
+        if (file_exists($filepath))
+        {
+            $path_parts = pathinfo($filepath);
+            switch(strtolower($path_parts['extension']))
+            {
+                case "gif":
+                header("Content-type: image/gif");
+                break;
+                case "jpg":
+                case "jpeg":
+                header("Content-type: image/jpeg");
+                break;
+                case "png":
+                header("Content-type: image/png");
+                break;
+                case "bmp":
+                header("Content-type: image/bmp");
+                break;
+            }
+            header("Accept-Ranges: bytes");
+            header('Content-Length: ' . filesize($filepath));
+            header("Last-Modified: Fri, 03 Mar 2004 06:32:31 GMT");
+            readfile($filepath);
+        }
+    }
+
+    public function isImagePath($path) {
+        return strpos($path, '.png') !== false ||
+        strpos($path, '.jpg') !== false ||
+        strpos($path, '.jpeg') !== false ||
+        strpos($path, '.bmp') !== false ||
+        strpos($path, '.gif') !== false;
+    }
+
     public function prepare() {
                 // check lock
                 if ($this->locked) {
@@ -406,6 +441,10 @@ class Pico
                 // discover requested file
                 $this->requestFile = $this->resolveFilePath($this->requestUrl);
                 $this->triggerEvent('onRequestFile', array(&$this->requestFile));
+
+                if ($this->isImagePath($this->requestFile)) {
+                    $this->serveImage($this->requestFile);
+                }
 
                 // load raw file content
                 $this->triggerEvent('onContentLoading');
@@ -1156,6 +1195,8 @@ class Pico
         $contentDir = $this->getConfig('content_dir');
         $contentExt = $this->getConfig('content_ext');
 
+
+
         if (!$requestUrl) {
             return $contentDir . 'index' . $contentExt;
         } else {
@@ -1191,6 +1232,11 @@ class Pico
                     return $indexFile;
                 }
             }
+
+            if ($this->isImagePath($requestFile)) {
+                return $requestFile;
+            }
+
             return $requestFile . $contentExt;
         }
     }
