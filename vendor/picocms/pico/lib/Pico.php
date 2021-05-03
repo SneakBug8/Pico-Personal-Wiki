@@ -398,8 +398,9 @@ class Pico
             }
             header("Accept-Ranges: bytes");
             header('Content-Length: ' . filesize($filepath));
-            header("Last-Modified: Fri, 03 Mar 2004 06:32:31 GMT");
+            header("Last-Modified: Fri, 03 Mar 2021 06:32:31 GMT");
             readfile($filepath);
+            die;
         }
     }
 
@@ -440,11 +441,14 @@ class Pico
 
                 // discover requested file
                 $this->requestFile = $this->resolveFilePath($this->requestUrl);
-                $this->triggerEvent('onRequestFile', array(&$this->requestFile));
 
                 if ($this->isImagePath($this->requestFile)) {
                     $this->serveImage($this->requestFile);
+                    // var_dump($this->requestUrl);
+                    // var_dump($this->requestFile);
                 }
+
+                $this->triggerEvent('onRequestFile', array(&$this->requestFile));
 
                 // load raw file content
                 $this->triggerEvent('onContentLoading');
@@ -1581,14 +1585,14 @@ class Pico
     public function parseFileContent($markdown)
     {
         $text = $this->getParsedown()->text($markdown);
-        $text = preg_replace(
+        /*$text = preg_replace(
             '/<a href=\"/',
             '<a href="'.$this->getBaseUrl(),
-            $text);
-            $text = preg_replace(
-                '/<a href=\'/',
-                "<a href='".$this->getBaseUrl(),
-                $text);
+        $text);
+        $text = preg_replace(
+            '/<a href=\'/',
+            "<a href='".$this->getBaseUrl(),
+        $text);*/
         return $text;
     }
 

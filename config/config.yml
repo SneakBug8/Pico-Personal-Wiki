@@ -1,8 +1,8 @@
 ##
 # Basic
 #
-site_title: NestJS Русскоязычная документация                    # The title of your website
-base_url: https://sneakbug8.com/nestjs                         # Pico will try to guess its base URL, if this fails, override it here
+site_title: Cockpit CMS Русскоязычная документация                    # The title of your website
+base_url: https://sneakbug8.com/cockpitcms                         # Pico will try to guess its base URL, if this fails, override it here
                                     #     Example: http://example.com/pico/
 rewrite_url: ~                      # A boolean (true or false) indicating whether URL rewriting is forced
 timezone: UTC                       # Your PHP installation might require you to manually specify a timezone
@@ -10,7 +10,7 @@ timezone: UTC                       # Your PHP installation might require you to
 ##
 # Theme
 #
-theme: clutter                      # The name of your custom theme
+theme: cockpit                      # The name of your custom theme
 theme_url: ~                        # Pico will try to guess the URL to the themes dir of your installation
                                     #     If this fails, override it here. Example: http://example.com/pico/themes/
 theme_config:

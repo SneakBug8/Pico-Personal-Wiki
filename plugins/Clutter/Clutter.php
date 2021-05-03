@@ -140,7 +140,7 @@ class Clutter extends AbstractPicoPlugin
 
         $id = "wiki1256_" . $id;
 
-        ?><div class="views-counter">Просмотров: <span id="counter-<?php echo $id; ?>"></span></div>
+        ?><div class="views-counter" style="margin-top: 1em;">Просмотров: <span id="counter-<?php echo $id; ?>"></span></div>
         <script>
             "use strict";
             function isElementInViewport (el) {

@@ -11,17 +11,12 @@ $pico = new Pico(
     'themes/'   // themes dir
 );
 
-$pico->prepare();
-
-?>
-<base href="https://sneakbug8.com" />
-<?php
+// <base href="https://sneakbug8.com" />
 
 function get_title() {
     global $pico;
     return $pico->meta['title'];
 }
-
 
 if (PHP_VERSION_ID < 50306) {
     die('Pico requires PHP 5.3.6 or above to run');
@@ -32,6 +27,8 @@ if (!extension_loaded('dom')) {
 if (!extension_loaded('mbstring')) {
     die("Pico requires the PHP extension 'mbstring' to run");
 }
+
+$pico->prepare();
 
 // override configuration?
 //$pico->setConfig(array());
