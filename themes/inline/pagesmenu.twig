@@ -1,5 +1,5 @@
 <nav class="nav-top">
-    <span class="directory"><a href="{{ base_url }}">root</a> / {{ current_page.id |root|directoryChain}}</span>
+    <span class="directory"><a href="{{ base_url }}">Главная</a> / {{ current_page.id |root|directoryChain}}</span>
     <ul class="nav">
         {% for page in pages|sort_by("title")|sort_by(["meta", "weight"])%}
         {% if not page.hidden %}

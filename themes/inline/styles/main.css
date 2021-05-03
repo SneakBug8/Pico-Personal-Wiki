@@ -14,15 +14,19 @@ h1 {
 }
 
 .main-nav {
-  width: 30%;
+  width: calc(30% - 1em);
   float: left;
+  margin-right: 1em;
   height: 100%;
 }
 
+.main-nav li, .main-nav span {
+  font-size: 10pt;
+}
+
 .nav-top {
-  border: 1px solid #bba;
-  background-color: #f7f8ff;
-  padding: 1em;
+  border-right: 1px solid #bba;
+  padding: 0.5em;
   font-size: 90%;
   text-align: center;
 }
@@ -34,10 +38,9 @@ h1 {
   }
 }
 
-ul.nav {
+ul.nav, ol.nav {
   list-style: none;
   line-height: 1.5em;
-  margin: 0;
 }
 
 li.menuitem.active a {
@@ -59,7 +62,7 @@ li.menuitem.active a {
 
 @media only screen and (max-width: 800px) {
   .main-content {
-    border-top: 10px solid #e3e3e3;
+    border-top: 5px solid #e3e3e3;
     width: 100%;
     margin: 0;
   }
@@ -90,7 +93,7 @@ li.menuitem.active a {
   font-weight: bold;
 }
 
-nav ul {
+nav ul, nav ol {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
