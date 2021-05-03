@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # May be required to access sub directories
+    #RewriteBase /
+
+    # Serve images from correct index.php
+    RewriteRule ^(.*\.(gif|jpg|png|jpeg|bmp))(/|$)$ ./index.php [QSA,L]
+
+    # Deny access to internal dirs and files by passing the URL to Pico
+    RewriteRule ^(config|content|vendor|CHANGELOG\.md|composer\.(json|lock|phar))(/|$) ../index.php [L]
+    RewriteRule (^\.|/\.)(?!well-known(/|$)) ../index.php [L]
+
+
+    # Enable URL rewriting to Wordpress
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ ../index.php [L]
+
+    <IfModule mod_env.c>
+        # Let Pico know about available URL rewriting
+        SetEnv PICO_URL_REWRITING 1
+        # Let Pico know about available Wordpress rewriting
+        SetEnv WP_URL_REWRITING 1
+    </IfModule>
+</IfModule>
+
+# Prevent file browsing
+Options -Indexes -MultiViews
